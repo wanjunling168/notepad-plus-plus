@@ -47,10 +47,6 @@ inline bool IsASpace(unsigned int ch) {
     return (ch == ' ') || ((ch >= 0x09) && (ch <= 0x0d));
 }
 
-static inline bool IsADigit(char ch) {
-	return isascii(ch) && isdigit(ch);
-}
-
 static inline bool IsADoxygenChar(const int ch) {
 	return (islower(ch) || ch == '$' || ch == '@' ||
 	        ch == '\\' || ch == '&' || ch == '<' ||
@@ -599,4 +595,4 @@ static void ColouriseObjCDocSensitive(Sci_PositionU startPos, Sci_Position lengt
 	ColouriseObjCDoc(startPos, length, initStyle, keywordlists, styler, true);
 }
 
-LexerModule lmObjC(SCLEX_OBJC, ColouriseObjCDocSensitive, "objc", FoldObjCDoc, cppWordLists);
+extern const LexerModule lmObjC(SCLEX_OBJC, ColouriseObjCDocSensitive, "objc", FoldObjCDoc, cppWordLists);
